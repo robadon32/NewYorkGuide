@@ -1,0 +1,308 @@
+<resources>
+    <string name="app_name">New York Tourist App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="list_item_title">Title</string>
+    <string name="list_item_description">description</string>
+    <string name="title">Title</string>
+    <string name="body_for_list_view">body for listView</string>
+    <string name="link_to_location">Link to Location</string>
+    <string name="description">Description</string>
+
+    ----------------------------------------------------------------------------------------------------
+    Description Layout
+    ----------------------------------------------------------------------------------------------------
+    <string name="detail_image_content">image of the location</string>
+    <string name="detail_number">number</string>
+    <string name="detail_call">Call:</string>
+    <string name="detail_address">Address</string>
+    <string name="detail_website">Website:</string>
+    <string name="detail_review_text">Review</string>
+    <string name="detail_page_call_button">call button image</string>
+    <string name="detail_page_address_button">address button image</string>
+    <string name="detail_page_website_button">website button image</string>
+    <string name="detail_page_weather_button">weather button image</string>
+    <string name="header">Welcome to New York City!</string>
+    <string name="subtitle">The city that never sleeps!</string>
+    <string name="more_info">Here are some of our top attractions and restaurants to check out here in the big apple!:</string>
+    <string name="image_of_museum">image of museum</string>
+    <string name="image_of_restaurant">image of restaurant</string>
+    <string name="image_of_times_square">image of times square</string>
+    <string name="image_of_statue_of_liberty">image of statue of liberty</string>
+    <string name="detail_weather">Weather: </string>
+    <string name="list_item_image">list_item_image</string>
+    <string name="share_menu">Share</string>
+    <string name="favorite_menu">Favorite</string>
+    <string name="main_good_eats">Good Eats</string>
+    <string name="main_museums">Museums</string>
+    <string name="main_landmarks">Landmarks</string>
+    <string name="main_fun_things_to_do">Fun Attractions</string>
+    <string name="main_image_banner_description">image of NYC skyline for the banner</string>
+    <string name="setting_switch_title">Night Mode</string>
+    <string name="switch_summary_off">Turn on Night Mode</string>
+    <string name="switch_summary_on">Turn off Night Mode</string>
+    ----------------------------------------------------------------------------------------------------
+    HomePage (Lemuel)
+    ----------------------------------------------------------------------------------------------------
+    <string-array name="locTitle">
+        <item>Landmarks</item>
+        <item>Restaurants/Street Food</item>
+        <item>Excursions/Attractions</item>
+        <item>Museums</item>
+    </string-array>
+
+    <string-array name="locImage">
+        <item>@drawable/food1</item>
+    </string-array>
+
+    <string-array name="locDescription">
+        <item>Awesome NYC LandMarks!!</item>
+        <item>Delicious Food!!</item>
+        <item>Fun Fun Fun!!!!</item>
+        <item>Where History and Beauty Clash!</item>
+    </string-array>
+    ----------------------------------------------------------------------------------------------------
+    FoodActivity (Lemuel)
+    ----------------------------------------------------------------------------------------------------
+    <string-array name="food_titles">
+        <item>Jimmys Grand Cafe</item>
+        <item>Slate NYC</item>
+        <item>Katz\'s Delicatessen</item>
+        <item>Tao Downtown</item>
+        <item>Dulce Vida Latin Bristro</item>
+    </string-array>
+
+    <string-array name="food_links">
+        <item>https://www.jimmysgrandcafe.com/</item>
+        <item>https://slate-ny.com/</item>
+        <item>https://katzsdelicatessen.com/</item>
+        <item>https://taogroup.com/venues/tao-downtown-new-york/</item>
+        <item>https://www.dulcevidalatinbistro.com/</item>
+    </string-array>
+
+    <string-array name="food_images">
+        <item>@drawable/food1</item>
+        <item>@drawable/food2</item>
+        <item>@drawable/food3</item>
+        <item>@drawable/food4</item>
+        <item>@drawable/food5</item>
+    </string-array>
+
+    <string-array name="food_description">
+        <item>At Jimmy\'s we serve up fresh and healthy American cuisine. Choose from our selections of breakfast items, soups, salads, sandwiches, hamburgers and much, much more!!! If you can\'t make it to us - no problem - we\'ll come to you! Click on the Order Online tab above and we\'ll deliver right to your home or office. And be sure to make use of our advance order feature to ensure that your food is delivered exactly when you want it. Order from work and have our delicious cuisine arrive at your door right after you get home! </item>
+        <item>Located in the heart of Chelsea, Slate remains one of New York City\’s iconic hotspots. Equal parts upscale bar and lounge, event space, nightclub and adult playground, its elegant design delivers a venue that has something for everyone, and its beautifully designed games area and self serve drink wall will keep the fun going all night long!</item>
+        <item>In 1888, a small deli by the name of Iceland Brothers was established on Ludlow Street in New York\’s Lower East Side by the Iceland brothers. Upon the arrival of Willy Katz in 1903, the name of the store was officially changed to "Iceland and Katz". Willy’s cousin Benny joined him in 1910, buying out the Iceland brothers to officially form Katz\’s Delicatessen. Their landsman Harry Tarowsky bought into the partnership in April 1917. Katz\’s Deli was moved across the street, to its present location, during the construction of the subway system. The vacant lot on Houston Street (pronounced "House–ton" after a Dutch emigrant of the same name) was home to barrels of meat and pickles until the present storefront facade was added between 1946–49.</item>
+        <item>This enormous, club like Pan-Asian eatery is known for a huge Buddha centerpiece and a trendy crowd.</item>
+        <item>We have revamped our menu and completely remodeled our restaurant to make the dining experience even better. We are still serving the best Colombian cuisine in New York City along with some new Latin-inspired dishes.</item>
+    </string-array>
+
+    <string-array name="food_review">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+
+    </string-array>
+
+    <string-array name="food_address">
+        <item>1001 Castle Hill Ave, The Bronx, NY 10472</item>
+        <item>54 W 21st St, New York, NY 10010</item>
+        <item>205 East Houston Street, New York, NY 10002</item>
+        <item>92 9th Ave, New York, NY 10011</item>
+        <item>1219 Lexington Avenue, New York, NY 10028</item>
+
+    </string-array>
+
+    <string-array name="food_phoneNumber">
+        <item>7183191200</item>
+        <item>2129890096</item>
+        <item>2122542246</item>
+        <item>2128882724</item>
+        <item>2125352424</item>
+
+    </string-array>
+
+    ----------------------------------------------------------------------------------------------------
+    Angeline
+    ----------------------------------------------------------------------------------------------------
+    <string-array name="museums">
+        <item>The MET</item>
+        <item>The Museum of Natural History</item>
+        <item>The MoMa</item>
+        <item>Brooklyn museum</item>
+        <item>9/11 Memorial</item>
+    </string-array>
+
+    <string-array name="museums_link">
+        <item>https://www.metmuseum.org/</item>
+        <item>https://www.amnh.org/</item>
+        <item>https://www.moma.org/</item>
+        <item>https://www.brooklynmuseum.org/</item>
+        <item>https://www.911memorial.org/</item>
+    </string-array>
+
+    <string-array name="museums_description">
+        <item>The Metropolitan Museum of Art of New York City, colloquially "the Met", is the largest art museum in the United States. With 6,479,548 visitors to its three locations in 2019, it was the fourth most visited art museum in the world.</item>
+        <item>The American Museum of Natural History, located on the Upper West Side of Manhattan, New York City, is one of the largest natural history museums in the world.</item>
+        <item>The Museum of Modern Art is an art museum located in Midtown Manhattan, New York City, on 53rd Street between Fifth and Sixth Avenues. It plays a major role in developing and collecting modern art, and is often identified as one of the largest and most influential museums of modern art in the world.</item>
+        <item>The Brooklyn Museum is an art museum located in the New York City borough of Brooklyn. At 560,000 square feet, the museum is New York City\'s third largest in physical size and holds an art collection with roughly 1.5 million works</item>
+        <item>The National September 11 Memorial Museum is a memorial and museum in New York City commemorating the September 11, 2001 attacks, which killed 2,977 people, and the 1993 World Trade Center bombing, which killed six. </item>
+    </string-array>
+
+    <string-array name="museums_number">
+        <item>2125357710</item>
+        <item>5205582396</item>
+        <item>2127089400</item>
+        <item>7186385000</item>
+        <item>2123128800</item>
+    </string-array>
+
+    <string-array name="museums_address">
+        <item>1000 5th Ave, New York, NY 10028</item>
+        <item>200 Central Park West, New York, NY 10024</item>
+        <item>11 W 53rd St, New York, NY 10019</item>
+        <item>200 Eastern Pkwy, Brooklyn, NY 11238</item>
+        <item>180 Greenwich St, New York, NY 10007</item>
+    </string-array>
+
+    <string-array name="museums_images">
+        <item>@drawable/the_met</item>
+        <item>@drawable/museum_natural_history</item>
+        <item>@drawable/moma</item>
+        <item>@drawable/brooklyn_museum</item>
+        <item>@drawable/nine_eleven_memorial</item>
+    </string-array>
+    ----------------------------------------------------------------------------------------------------
+    Robert
+    ----------------------------------------------------------------------------------------------------
+
+    ***********LANDMARK ACTIVITY*************
+    <string-array name="landmark_titles">
+        <item>The Statue of Liberty</item>
+        <item>Central Park</item>
+        <item>Empire State Building</item>
+        <item>Grand Central Station</item>
+        <item>One World Trade Center</item>
+        <item>Charging Bull</item>
+    </string-array>
+
+    <string-array name="landmark_descriptions">
+        <item>The Statue of Liberty (Liberty Enlightening the World; French: La Liberté éclairant le monde) is a colossal neoclassical sculpture on Liberty Island in New York Harbor in New York City, in the United States. The copper statue, a gift from the people of France to the people of the United States, was designed by French sculptor Frédéric Auguste Bartholdi and built by Gustave Eiffel. The statue was dedicated on October 28, 1886.</item>
+        <item>Central Park is an urban park in Manhattan, New York City. It is located between the Upper West Side and Upper East Side, roughly bounded by Fifth Avenue on the east, Central Park West (Eighth Avenue) on the west, Central Park South (59th Street) on the south, and Central Park North (110th Street) on the north. Central Park is the most visited urban park in the United States, with 40 million visitors in 2013, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth-largest park in New York City, covering 843 acres (341 ha).</item>
+        <item><![CDATA[The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan, New York City. Designed by Shreve, Lamb & Harmon and completed in 1931, the building has a roof height of 1,250 feet (380 m) and stands a total of 1,454 feet (443.2 m) tall, including its antenna. Its name is derived from \"Empire State\", the nickname of New York. As of 2017 the building is the 5th-tallest completed skyscraper in the United States and the 28th-tallest in the world. It is also the 6th-tallest freestanding structure in the Americas.]]></item>
+        <item>Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter and intercity railroad terminal at 42nd Street and Park Avenue in Midtown Manhattan in New York City, United States. The terminal serves commuters traveling on the Metro-North Railroad to Westchester, Putnam, and Dutchess counties in New York, as well as to Fairfield and New Haven counties in Connecticut. Through recent Amtrak connections, Grand Central is served by the Adirondack, Empire Service, Ethan Allen Express, and Maple Leaf services. The terminal also contains a connection to the New York City Subway at Grand Central–42nd Street.</item>
+        <item>One World Trade Center (also known as 1 World Trade Center, 1 WTC or Freedom Tower)is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. It is the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east.</item>
+        <item>Charging Bull, which is sometimes referred to as the Wall Street Bull or the Bowling Green Bull, is a bronze sculpture that stands in Bowling Green in the Financial District in Manhattan, New York City. Originally guerrilla art, installed unofficially by Arturo Di Modica, its popularity led to it being a permanent feature. The 7,100-pound (3,200 kg) sculpture stands 11 feet (3.4 m) tall and measures 16 feet (4.9 m) long. The oversize sculpture depicts a bull, the symbol of aggressive financial optimism and prosperity, leaning back on its haunches and with its head lowered as if ready to charge. The sculpture is both a popular tourist destination which draws thousands of people a day, as well as \"one of the most iconic images of New York\" and a \"Wall Street icon\" symbolizing Wall Street and the Financial District.</item>
+    </string-array>
+
+    <string-array name="landmark_reviews">
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+
+    <string-array name="landmark_numbers">
+        <item>2123633200</item>
+        <item>2123106600</item>
+        <item>2127363100</item>
+        <item>2124648255</item>
+        <item>2126024000</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="landmark_addresses">
+        <item>Liberty Island New York, NY 10004</item>
+        <item>Central Park Information Kiosk Columbus Circle, West 59th Street, New York, NY</item>
+        <item>20 W 34th St, New York, NY 10001</item>
+        <item>GRAND CENTRAL TERMINAL, 89 E 42ND STREET, NEW YORK, NY 10017</item>
+        <item>One World Trade Center, 117 West Street, New York, New York 10007</item>
+        <item>Charging Bull, New York, NY 10004</item>
+    </string-array>
+
+    <string-array name="landmark_links">
+        <item>https://www.nps.gov/stli/planyourvisit/reopening-covid-details.htm</item>
+        <item>https://www.centralparknyc.org/support?s_src=GoogleAdwords&amp;s_subsrc=BrandedParkMR&amp;gclid=Cj0KCQjwyJn5BRDrARIsADZ9ykGsd4B0phK7sBtnpqcZXNHEnkvq1L_kA_rp7Wim4xNi3yfSXlhzSXsaAo75EALw_wcB</item>
+        <item>https://www.esbnyc.com/buy-tickets?gclid=Cj0KCQjwyJn5BRDrARIsADZ9ykGY1MlxELU0KZAgoosm9cK3_c3s8FJE1TjbfPf-rHmEim0flqBYC6waAsPaEALw_wcB&amp;gclsrc=aw.ds</item>
+        <item>https://www.grandcentralterminal.com/</item>
+        <item>https://www.oneworldobservatory.com/en-US/buy-tickets</item>
+        <item>https://www.chargingbull.com/history/</item>
+    </string-array>
+
+    <array name="landmark_images">
+        <item>@drawable/statue_of_liberty_banner2</item>
+        <item>@drawable/central_park_banner2</item>
+        <item>@drawable/empire_state_building_banner</item>
+        <item>@drawable/grand_central_station_banner</item>
+        <item>@drawable/one_world_trade_banner2</item>
+        <item>@drawable/raging_bull_banner</item>
+    </array>
+
+    ***********FUN ACTIVITY*************
+    <string-array name="fun_titles">
+        <item>Ripley\'s Believe It or Not!</item>
+        <item>The Lion King</item>
+        <item>Big Bus New York</item>
+        <item>Times Square</item>
+        <item>Rockefeller Center</item>
+    </string-array>
+
+    <string-array name="fun_descriptions">
+        <item>As you meander through over 20 themed galleries spanning two floors, you\’ll discover new surprises around every turn. Make sure you bring your camera! There are amazing photo opportunities you won\’t find anywhere else! Where else can you take a photo where you\’re only half a person, a head in a jar, covered by live cockroaches, or hanging off the top of the Empire State building? You can do all this and more at Ripley\’s Believe It or Not! Times Square! So be sure you include Ripley\’s when you plan what to see and do in New York.</item>
+        <item>The Lion King is a musical based on the 1994 Disney animated feature film of the same name with music by Elton John and lyrics by Tim Rice along with the musical score created by Hans Zimmer with choral arrangements by Lebo M. Directed by Julie Taymor, the musical features actors in animal costumes as well as giant, hollow puppets. The show is produced by Disney Theatrical Productions.</item>
+        <item>Ranked TripAdvisor\'s Number 1 New York Hop-On Hop-Off Bus Tour! Our New York bus tours serve up the Big Apple in perfect slices. Hop on to capture panoramic views of icons like the Empire State Building and Brooklyn Bridge. Hop off at any Big Bus stop to discover New York\'s famous neighborhoods and hidden gems.</item>
+        <item>Explore the Bronx Zoo\'s 265 acres of nature and reconnect with wildlife. It is one of the largest zoos in the United States by area, and is the largest metropolitan zoo in the United States by area. Tickets are limited &amp; must be reserved in advance. Get tickets. Every guest, every day. Fun for the entire family. Part of the WCS family. Discover wildlife. Over 650 species. Activities: Donate, Volunteer.</item>
+        <item>Rockefeller Center is a large complex consisting of 19 commercial buildings covering 22 acres between 48th and 51st Streets, facing Fifth Avenue, in New York City. Commissioned by the Rockefeller family, it is located in the center of Midtown Manhattan. The 14 original Art Deco buildings span the area between Fifth and Sixth Avenues, split by a large sunken square and a private street called Rockefeller Plaza. Five International Style buildings, built later, are located on the west side of Sixth Avenue and at the head of Rockefeller Plaza.</item>
+    </string-array>
+
+    <string-array name="fun_reviews">
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+
+    <string-array name="fun_numbers">
+        <item>2123983133</item>
+        <item>8668702717</item>
+        <item>6468639123</item>
+        <item>7182205100</item>
+        <item>2125888601</item>
+    </string-array>
+
+    <string-array name="fun_addresses">
+        <item>Ripley’s Believe It or Not! Times Square, 234 West 42nd Street (between 7th &amp; 8th Avenues)</item>
+        <item>Minskoff Theatre, 200 W. 45th Street, New York, NY</item>
+        <item>Big Bus Tours Information Center at Madame Tussauds, 234 West 42nd St.</item>
+        <item>2300 Southern Boulevard Bronx, New York 10460</item>
+        <item>45 ROCKEFELLER PLAZA NEW YORK, NY 10111</item>
+    </string-array>
+
+    <string-array name="fun_links">
+        <item>https://ripleysnewyork.com/buy-tickets/</item>
+        <item>https://www.lionking.com/worldwide/united-states</item>
+        <item>https://www.bigbustours.com/en/new-york/service-information/</item>
+        <item>https://bronxzoo.com/</item>
+        <item>https://www.rockefellercenter.com/?gclid=Cj0KCQjwyJn5BRDrARIsADZ9ykFIREYPPg6BqQvJsTsxl3xmdx8PGm9Y4BCwW5L0GeWV1x8CfHrGK54aAgaOEALw_wcB</item>
+    </string-array>
+
+    <array name="fun_images">
+        <item>@drawable/ripley_nyc</item>
+        <item>@drawable/lion_king</item>
+        <item>@drawable/big_bus_tour</item>
+        <item>@drawable/bronx_zoo</item>
+        <item>@drawable/rockefeller_center</item>
+    </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_5_days_of_forecast">5 Days of Forecast</string>
+    <string name="menu_weather">Weather</string>
+</resources>
