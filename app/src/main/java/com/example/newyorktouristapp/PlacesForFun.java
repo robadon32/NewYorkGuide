@@ -25,7 +25,7 @@ public class PlacesForFun extends AppCompatActivity {
         recyclerView = findViewById(R.id.list_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        placeAdapter = new PlaceAdapter(this, placeData);
+        placeAdapter = new PlaceAdapter(this);
         recyclerView.setAdapter(placeAdapter);
 
         loadPlaceData();
@@ -44,7 +44,7 @@ public class PlacesForFun extends AppCompatActivity {
 
         for(int i = 0; i < arrTitles.length; i++) {
             placeData.add(new Place(arrImages.getResourceId(i, 0), arrTitles[i],
-                    arrDescriptions[i], arrReviews[i], arrNumbers[i], arrAddresses[i], arrLinks[i]));
+                    arrDescriptions[i], arrReviews[i], arrNumbers[i], arrAddresses[i], arrLinks[i], false, "fun"));
         }
 
         arrImages.recycle();

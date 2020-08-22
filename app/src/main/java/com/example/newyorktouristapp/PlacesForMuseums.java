@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class PlacesForMuseums extends AppCompatActivity {
 
-    private ArrayList<Place> placeData;
+    protected static ArrayList<Place> placeData;
     private RecyclerView recyclerView;
     private PlaceAdapter placeAdapter;
 
@@ -21,12 +21,12 @@ public class PlacesForMuseums extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
 
-        placeData = new ArrayList<Place>();
+        placeData = new ArrayList<>();
 
         recyclerView  = findViewById(R.id.list_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        placeAdapter = new PlaceAdapter(this, placeData);
+        placeAdapter = new PlaceAdapter(this);
         recyclerView.setAdapter(placeAdapter);
 
         loadPlaceData();
@@ -44,7 +44,7 @@ public class PlacesForMuseums extends AppCompatActivity {
 
         for(int i = 0; i < arrTitles.length; i++) {
             placeData.add(new Place(arrImages.getResourceId(i, 0), arrTitles[i],
-                            arrDescriptions[i], arrAddresses[i],arrNumbers[i], arrLinks[i]));
+                            arrDescriptions[i], arrAddresses[i],arrNumbers[i], arrLinks[i], false, "museum"));
 
         }
         arrImages.recycle();

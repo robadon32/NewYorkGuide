@@ -32,8 +32,16 @@ public class Place {
     @ColumnInfo(name = "image")
     private int locImage;
 
+    @ColumnInfo(name = "boolean")
+    private boolean isFavorite;
+
+    @ColumnInfo(name = "category")
+    private String placeType;
+
     @Ignore
-    public Place(int locImage, String locTitle, String locDescription, String locReview, String locNumber, String locAddress, String locUrl) {
+    public Place(int locImage, String locTitle, String locDescription,
+                 String locReview, String locNumber, String locAddress,
+                 String locUrl, boolean isFavorite, String placeType) {
         this.locImage = locImage;
         this.locTitle = locTitle;
         this.locDescription = locDescription;
@@ -41,21 +49,29 @@ public class Place {
         this.locNumber = locNumber;
         this.locAddress = locAddress;
         this.locUrl = locUrl;
+        this.isFavorite = isFavorite;
+        this.placeType = placeType;
     }
 
     @Ignore
-    public Place(int locImage, String locTitle, String locDescription, String locNumber, String locAddress, String locUrl) {
+    public Place(int locImage, String locTitle, String locDescription,
+                 String locNumber, String locAddress, String locUrl,
+                 boolean isFavorite, String placeType) {
         this.locImage = locImage;
         this.locTitle = locTitle;
         this.locDescription = locDescription;
         this.locNumber = locNumber;
         this.locAddress = locAddress;
         this.locUrl = locUrl;
+        this.isFavorite = isFavorite;
+        this.placeType = placeType;
     }
 
-    public Place(String locTitle, String locNumber) {
+    public Place(String locTitle, String locNumber, boolean isFavorite, String placeType) {
         this.locTitle = locTitle;
         this.locNumber = locNumber;
+        this.isFavorite = isFavorite;
+        this.placeType = placeType;
     }
 
     public int getLocImage() {
@@ -86,6 +102,10 @@ public class Place {
         return locReview;
     }
 
+    public boolean getIsFavorite() { return isFavorite; }
+
+    public String getPlaceType() { return placeType; }
+
     public void setLocTitle(@NonNull String locTitle) {
         this.locTitle = locTitle;
     }
@@ -114,5 +134,9 @@ public class Place {
         this.locImage = locImage;
     }
 
+    public void setFavorite(boolean isFavorite) { this.isFavorite = isFavorite; }
 
+    public void setPlaceType(String placeType) {
+        this.placeType = placeType;
+    }
 }

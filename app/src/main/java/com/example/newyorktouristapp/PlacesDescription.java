@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ShareCompat;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,16 +40,15 @@ import java.util.ArrayList;
 
 public class PlacesDescription extends AppCompatActivity {
 
-    protected static final String ADD_TO_FAVORITES =
-            BuildConfig.APPLICATION_ID + ".ADD_TO_FAVORITES";
-
+    protected static final String ADD_TO_FAVORITES = BuildConfig.APPLICATION_ID + ".ADD_TO_FAVORITES";
+    public static final int REQUEST_CALL_PHONE = 2;
     private TextView descriptionView, reviewView;
     private ImageView imageView;
-    protected static String placeItemTitle;
-    private Menu menu;
+    private int placeImage;
+    private String placeItemTitle, placeDescription, placeNumber, placeAddress, placeURL, placeType;
     private FavoritesReceiver favoritesReceiver;
-    public static final int REQUEST_CALL_PHONE = 2;
     protected Boolean isFavorite;
+    private PlaceViewModel placeViewModel;
    //YouTubePlayerView mYouTubePlayerView;
    //Button btnPlay;
    //YouTubePlayer.OnInitializedListener mOnOnInitializedListener;
@@ -62,21 +62,31 @@ public class PlacesDescription extends AppCompatActivity {
         favoritesReceiver = new FavoritesReceiver();
 
         setReferences();
+        getExtras();
 
-        placeItemTitle = getIntent().getStringExtra(PlaceAdapter.TITLE_EXTRA_KEY);
         this.setTitle(placeItemTitle);
-
-        descriptionView.setText(getIntent().getStringExtra(PlaceAdapter.DESCRIPTION_EXTRA_KEY));
+        descriptionView.setText(placeDescription);
 //        reviewView.setText((getIntent().getStringExtra("review")));
-        Glide.with(this).load(getIntent().getIntExtra("image", 0)).into(imageView);
+        Glide.with(this).load(placeImage).into(imageView);
 
-
+        placeViewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(PlaceViewModel.class);
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ADD_TO_FAVORITES);
         this.registerReceiver(favoritesReceiver, intentFilter);
         LocalBroadcastManager.getInstance(this).registerReceiver
                 (favoritesReceiver, new IntentFilter(ADD_TO_FAVORITES));
+    }
+
+    private void getExtras() {
+        placeImage = getIntent().getIntExtra(PlaceAdapter.IMAGE_EXTRA_KEY, 0);
+        placeItemTitle = getIntent().getStringExtra(PlaceAdapter.TITLE_EXTRA_KEY);
+        placeDescription = getIntent().getStringExtra(PlaceAdapter.DESCRIPTION_EXTRA_KEY);
+        placeNumber = getIntent().getStringExtra(PlaceAdapter.NUMBER_EXTRA_KEY);
+        placeAddress = getIntent().getStringExtra(PlaceAdapter.ADDRESS_EXTRA_KEY);
+        placeURL = getIntent().getStringExtra(PlaceAdapter.LINK_EXTRA_KEY);
+        isFavorite = getIntent().getBooleanExtra(PlaceAdapter.FAVORITE_EXTRA_KEY, false);
+        placeType = getIntent().getStringExtra(PlaceAdapter.TYPE_EXTRA_KEY);
     }
 
     private void setReferences() {
@@ -126,13 +136,10 @@ public class PlacesDescription extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.description_toolbar_options, menu);
-        this.menu = menu;
-        isFavorite = getIntent().getBooleanExtra(PlaceAdapter.PLACE_EXTRA_KEY, true );
-        if(isFavorite) {
+        if(isFavorite == true) {
             menu.getItem(1).setIcon(R.drawable.favorite_icon_red);
         }
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
@@ -145,34 +152,41 @@ public class PlacesDescription extends AppCompatActivity {
                 if (!isFavorite) {
                     item.setIcon(R.drawable.favorite_icon_red);
                     addToFavoritesList();
-                    sendFavoritesBroadcast();
-                    isFavorite = true;
                 } else {
                     item.setIcon(R.drawable.favorite_icon);
-                    isFavorite = false;
+                    deleteFromFavoritesList();
                 }
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void sendFavoritesBroadcast() {
-        Intent broadcastIntent = new Intent(ADD_TO_FAVORITES);
-        LocalBroadcastManager.getInstance(this)
-                .sendBroadcast(broadcastIntent);
-    }
+//    private void sendFavoritesBroadcast() {
+//        Intent broadcastIntent = new Intent(ADD_TO_FAVORITES);
+//        LocalBroadcastManager.getInstance(this)
+//                .sendBroadcast(broadcastIntent);
+//    }
 
     private void deleteFromFavoritesList() {
-        MainActivity.favoritesData.remove(getIntent().getIntExtra(PlaceAdapter.PLACE_EXTRA_KEY, 0));
+        if(isFavorite) {
+            Place place = new Place(placeImage, placeItemTitle, placeDescription, placeNumber,
+                    placeAddress, placeURL, false, placeType);
+            placeViewModel.update(place);
+            Toast.makeText(this, "You've removed " + placeItemTitle + " from your favorites list.",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void addToFavoritesList() {
-
-        MainActivity.favoritesData.add(new Place(placeItemTitle,
-                    getIntent().getStringExtra("number")));
-        Log.d("PlacesDescription", MainActivity.favoritesData.get(0) + "");
-        Log.d("PlacesDescription", " "+ PlaceAdapter.placeData.get(0) );
-
+        if(!isFavorite) {
+            Place place = new Place(placeImage, placeItemTitle, placeDescription, placeNumber,
+                    placeAddress, placeURL, true, placeType);
+            placeViewModel.update(place);
+            Toast.makeText(this, "You've added " + placeItemTitle + " to your favorites list.",
+                    Toast.LENGTH_SHORT).show();
+            Intent favoritesIntent = new Intent(this, FavoritesList.class);
+            startActivity(favoritesIntent);
+        }
     }
 
     private void sendText() {

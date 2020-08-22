@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,14 +25,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     protected static String ADDRESS_EXTRA_KEY = "address";
     protected static String NUMBER_EXTRA_KEY = "number";
     protected static String LINK_EXTRA_KEY = "link";
-    protected static String PLACE_EXTRA_KEY = "place";
+    protected static String FAVORITE_EXTRA_KEY = "place";
+    protected static String TYPE_EXTRA_KEY = "placeType";
 
-    protected static ArrayList<Place> placeData;
+    protected List<Place> placeData;
     private Context context;
 
-    public PlaceAdapter(Context context, ArrayList<Place> placeData) {
+    public PlaceAdapter(Context context) {
         this.context = context;
-        this.placeData = placeData;
     }
 
     @NonNull
@@ -43,17 +45,32 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Place currPlace = placeData.get(position);
-        holder.bindTo(currPlace);
+        Glide.with(context).load(currPlace.getLocImage()).centerCrop().into(holder.placeView);
+        holder.titleView.setText(currPlace.getLocTitle());
+        holder.descriptionView.setText(currPlace.getLocDescription());
+        if(currPlace.getIsFavorite()) {
+            holder.favoritesIcon.setImageResource(R.drawable.favorite_icon_red);
+        } else {
+            holder.favoritesIcon.setImageResource(R.drawable.favorite_icon);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return placeData.size();
+        if(placeData != null){
+            return placeData.size();
+        }
+        return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public void setPlaces(List<Place> places) {
+        placeData = places;
+        notifyDataSetChanged();
+    }
 
-        ImageView placeView;
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+
+        ImageView placeView, favoritesIcon;
         TextView titleView, descriptionView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -61,22 +78,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
             placeView = itemView.findViewById(R.id.place_image);
             titleView = itemView.findViewById(R.id.place_title);
             descriptionView = itemView.findViewById(R.id.place_description);
+            favoritesIcon = itemView.findViewById(R.id.list_item_favorite_icon);
             itemView.setOnClickListener(this);
-        }
-
-        public void bindTo(Place currPlace) {
-            Glide.with(context).load(currPlace.getLocImage()).into(placeView);
-            titleView.setText(currPlace.getLocTitle());
-            descriptionView.setText(currPlace.getLocDescription());
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             Place currPlace = placeData.get(getAdapterPosition());
-            int currPlaceIndex = placeData.indexOf(currPlace);
-
-            boolean isInTheList = false;
-            if(MainActivity.favoritesData.contains(currPlace)){ isInTheList = true; }
 
             Intent adapterIntent = new Intent(context, PlacesDescription.class);
             adapterIntent.putExtra(IMAGE_EXTRA_KEY, currPlace.getLocImage());
@@ -86,8 +95,18 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder> 
             adapterIntent.putExtra(NUMBER_EXTRA_KEY, currPlace.getLocNumber());
             adapterIntent.putExtra(ADDRESS_EXTRA_KEY, currPlace.getLocAddress());
             adapterIntent.putExtra(LINK_EXTRA_KEY, currPlace.getLocUrl());
-            adapterIntent.putExtra(PLACE_EXTRA_KEY, isInTheList);
+            adapterIntent.putExtra(FAVORITE_EXTRA_KEY, currPlace.getIsFavorite());
+            adapterIntent.putExtra(TYPE_EXTRA_KEY, currPlace.getPlaceType());
             context.startActivity(adapterIntent);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            Place currPlace = placeData.get(getAdapterPosition());
+            Intent adapterIntent = new Intent(context, FavoritesList.class);
+            adapterIntent.putExtra(TITLE_EXTRA_KEY, currPlace.getLocTitle());
+
+            return true;
         }
     }
 }

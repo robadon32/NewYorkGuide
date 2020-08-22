@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp">
 
     <LinearLayout
@@ -12,12 +13,13 @@
 
         <ImageView
             android:id="@+id/place_image"
+            style="@style/Base.CardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/ic_launcher_background"
-            android:contentDescription="@string/list_item_image"
-            style="@style/Base.CardView" />
+            android:scaleType="centerCrop"
+            android:background="@drawable/statue_of_liberty_banner2"
+            android:contentDescription="@string/list_item_image" />
 
         <TextView
             android:id="@+id/place_title"
@@ -36,10 +38,23 @@
             android:id="@+id/place_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="body_for_listview"
+            android:maxLines="2"
+            android:text="@string/body_for_list_item"
             android:textColor="@color/colorAccent"
             android:padding="8dp"
             style="@style/Base.CardView" />
+
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/list_item_favorite_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/favorite_icon"
+        android:contentDescription="@string/favorites_icon_list_item"
+        android:translationY="115dp"/>
 
 </androidx.cardview.widget.CardView>

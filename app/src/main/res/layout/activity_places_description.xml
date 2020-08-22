@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/detail_image_content"
-        android:src="@drawable/ic_launcher_background"
+        app:srcCompat="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -100,7 +100,7 @@
         android:layout_marginBottom="56dp"
         android:contentDescription="@string/detail_page_call_button"
         android:onClick="callPlace"
-        android:src="@drawable/detail_call_button"
+        app:srcCompat="@drawable/detail_call_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView" />
 
@@ -113,7 +113,7 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/detail_page_address_button"
         android:onClick="getDirection"
-        android:src="@drawable/detail_address_button"
+        app:srcCompat="@drawable/detail_address_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2" />
 
@@ -152,7 +152,7 @@
         android:layout_marginBottom="12dp"
         android:contentDescription="@string/detail_page_website_button"
         android:onClick="goToWebsite"
-        android:src="@drawable/detail_website_button"
+        app:srcCompat="@drawable/detail_website_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3" />
 
@@ -180,7 +180,7 @@
         android:layout_marginBottom="56dp"
         android:contentDescription="@string/detail_page_weather_button"
         android:onClick="getWeather"
-        android:src="@drawable/detail_weather_button"
+        app:srcCompat="@drawable/detail_weather_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView4" />
 

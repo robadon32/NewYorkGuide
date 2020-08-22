@@ -214,7 +214,7 @@
         <item>2127363100</item>
         <item>2124648255</item>
         <item>2126024000</item>
-        <item>0</item>
+        <item>2125555555</item>
     </string-array>
 
     <string-array name="landmark_addresses">
@@ -305,4 +305,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="_5_days_of_forecast">5 Days of Forecast</string>
     <string name="menu_weather">Weather</string>
+    <string name="body_for_listitem">description</string>
+    <string name="favorites_icon_list_item">favorites icon</string>
+    <string name="body_for_list_item">body</string>
+    <string name="title_add_new_place">Title</string>
+    <string name="phone_number_add_new_place">Phone Number</string>
+    <string name="website_url_add_new_place">Website URL</string>
+    <string name="place_type_add_new_place">Place Type</string>
+    <string name="add_new_place">Add New Place</string>
+
+    <!-- Spinner menu options -->
+    <string-array name="place_type">
+        <item>Landmark</item>
+        <item>Fun</item>
+        <item>Food</item>
+        <item>Museum</item>
+    </string-array>
 </resources>

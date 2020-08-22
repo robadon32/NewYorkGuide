@@ -20,42 +20,28 @@ import java.util.List;
 
 public class FavoritesList extends AppCompatActivity {
 
-    List<Place> favoritesData;
-    public PlaceViewModel placeViewModel;
-
+    public static PlaceViewModel placeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
 
-        favoritesData = MainActivity.favoritesData;
-
         RecyclerView recyclerView = findViewById(R.id.list_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        final FavoritesAdapter favoritesAdapter = new FavoritesAdapter(this, favoritesData);
+        final FavoritesAdapter favoritesAdapter = new FavoritesAdapter(this);
         recyclerView.setAdapter(favoritesAdapter);
 
         favoritesAdapter.notifyDataSetChanged();
 
-//      placeViewModel = ViewModelProviders.of(this,
-//                new PlaceViewModelFactory(getApplication()))
-//                .get(PlaceViewModel.class);
-//        placeViewModel.getAllPlaces().observe(this, new Observer<List<Place>>() {
-//            @Override
-//            public void onChanged(List<Place> places) {
-//                favoritesAdapter.setPlaces(places);
-//            }
-//        });
-
-//    placeViewModel = ViewModelProviders.of(this).get(PlaceViewModel.class);
-//    placeViewModel.getAllPlaces().observe(this, new Observer<List<Place>>() {
-//        @Override
-//        public void onChanged(List<Place> places) {
-//            favoritesAdapter.setPlaces(places);
-//        }
-//    });
+        placeViewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(PlaceViewModel.class);
+        placeViewModel.getAllPlaces().observe(this, new Observer<List<Place>>() {
+            @Override
+            public void onChanged(List<Place> places) {
+                favoritesAdapter.setPlaces(places);
+            }
+        });
 
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper
                 .SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -69,7 +55,7 @@ public class FavoritesList extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                favoritesData.remove(viewHolder.getAdapterPosition());
+//                favoritesData.remove(viewHolder.getAdapterPosition());
                 favoritesAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
             }
         });
